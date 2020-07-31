@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "755343264609",
+    "firebase_url": "https://kotlin-intermedio-udemy.firebaseio.com",
+    "project_id": "kotlin-intermedio-udemy",
+    "storage_bucket": "kotlin-intermedio-udemy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755343264609:android:fc3983b4ace10fab075320",
+        "android_client_info": {
+          "package_name": "com.iherrera.chatkotlin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755343264609-ekmtjtishh3foiogiu2g9cs1sv2savt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhP_vH8ytiVxZpO8seB2CnQxUo6X-MBMo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755343264609-ekmtjtishh3foiogiu2g9cs1sv2savt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
