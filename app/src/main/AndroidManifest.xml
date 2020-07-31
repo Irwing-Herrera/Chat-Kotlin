@@ -13,8 +13,7 @@
         <!-- adjustPan: No empujar el contenido cunado se usa un input -->
 
         <activity
-            android:name=".activities.login.SignUpActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:name=".activities.login.SignUpActivity">
 
         </activity>
 

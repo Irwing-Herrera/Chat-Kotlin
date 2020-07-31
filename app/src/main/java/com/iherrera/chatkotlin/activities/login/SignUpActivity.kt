@@ -14,7 +14,7 @@ class SignUpActivity : AppCompatActivity() {
 
     /**
      * Declara una instancia de FirebaseAuth
-     * Utliza un carga peresosa, la cual se inicializa cuando se manda a llamar la variable
+     * Utliza carga peresosa, la cual se inicializa cuando se manda a llamar la variable
      */
     private val mAuth: FirebaseAuth? by lazy { FirebaseAuth.getInstance() }
 
@@ -34,7 +34,7 @@ class SignUpActivity : AppCompatActivity() {
             val password = editTextConfirmPassword.text.toString()
 
             if (_isValidEmailAndPassword(email, password)) {
-                _signUpByEmail(email, password)
+                _signUp(email, password)
             } else {
                 toast("Please fill all the data and confirm password is correct.")
             }
@@ -42,12 +42,12 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     /**
-     * Realiza el logueo de una cuenta a Firebase
+     * Crear una cuenta en Firebase
      *
      * @param {String} email
      * @param {String} pasword
      */
-    private fun _signUpByEmail(email: String, password: String) {
+    private fun _signUp(email: String, password: String) {
         mAuth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -61,6 +61,9 @@ class SignUpActivity : AppCompatActivity() {
 
     /**
      * Comprueba si no estan vacios los text y si son iguales los passwords
+     *
+     * @param {String} email
+     * @param {String} password
      */
     private fun _isValidEmailAndPassword(emai: String, password: String): Boolean {
         return !emai.isNullOrEmpty() &&
