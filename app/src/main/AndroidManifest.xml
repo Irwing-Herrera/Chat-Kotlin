@@ -9,13 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity"></activity>
-
-        <!-- adjustPan: No empujar el contenido cunado se usa un input -->
+        <activity android:name=".activities.login.SignUpActivity"></activity>
+        <activity android:name=".activities.login.ForgotPasswordActivity" />
+        <activity android:name=".activities.MainActivity" /> <!-- adjustPan: No empujar el contenido cunado se usa un input -->
         <activity
-            android:name=".LoginActivity"
-            android:windowSoftInputMode="adjustPan" >
+            android:name=".activities.login.LoginActivity"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
