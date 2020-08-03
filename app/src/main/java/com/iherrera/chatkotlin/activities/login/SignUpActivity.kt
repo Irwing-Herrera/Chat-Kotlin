@@ -27,6 +27,8 @@ class SignUpActivity : AppCompatActivity() {
             openActivity<LoginActivity> {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
+
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
 
         buttonSignUp.setOnClickListener {
@@ -52,7 +54,10 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     toast("An email has been sent to you. Please, confirm before sign in.")
-                    val user = mAuth!!.currentUser
+                    openActivity<LoginActivity> {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    }
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 } else {
                     toast("An unexpected error occurred, please try again.")
                 }
