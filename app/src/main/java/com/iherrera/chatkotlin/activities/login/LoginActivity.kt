@@ -58,14 +58,11 @@ class LoginActivity : AppCompatActivity() {
         mAuth!!.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    toast("User is now logged in.")
-                    val currentUser = mAuth!!.currentUser!!
-                    currentUser.displayName
-                    currentUser.email
-                    currentUser.photoUrl
-                    currentUser.phoneNumber
-                    currentUser.isEmailVerified
-
+                    if (mAuth!!.currentUser!!.isEmailVerified) {
+                        toast("User is now logged in.")
+                    } else {
+                        toast("User must confirm email first.")
+                    }
                 } else {
                     toast("An unexpected error occurred, please try again.")
                 }
