@@ -2,13 +2,13 @@ package com.iherrera.chatkotlin.activities.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.others.openActivity
-import com.iherrera.chatkotlin.activities.others.toast
+import com.iherrera.chatkotlin.activities.others.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
-
 
 class SignUpActivity : AppCompatActivity() {
 
@@ -33,13 +33,26 @@ class SignUpActivity : AppCompatActivity() {
 
         buttonSignUp.setOnClickListener {
             val email = editTextEmail.text.toString()
-            val password = editTextConfirmPassword.text.toString()
+            val password = editTextPassword.text.toString()
+            val confirmPassword = editTextConfirmPassword.text.toString()
 
-            if (_isValidEmailAndPassword(email, password)) {
+            if (isValidEmail(email) && isValidPassword(password) && isValidConfirmPassword(password, confirmPassword)) {
                 _signUp(email, password)
             } else {
-                toast("Please fill all the data and confirm password is correct.")
+                toast("Please make sure all the data is correct.")
             }
+        }
+
+        editTextEmail.validate {
+            editTextEmail.error = if (isValidEmail(it)) null else "Email is not valid"
+        }
+
+        editTextPassword.validate {
+            editTextPassword.error = if (isValidPassword(it)) null else "Password should contain 1 lowercase, 1 uppercase, 1 number, 1 special character and 4 characters length at least."
+        }
+
+        editTextConfirmPassword.validate {
+            editTextConfirmPassword.error = if (isValidConfirmPassword(editTextPassword.text.toString(), it)) null else "Confirm Password does not match with Password"
         }
     }
 
@@ -62,18 +75,5 @@ class SignUpActivity : AppCompatActivity() {
                     toast("An unexpected error occurred, please try again.")
                 }
             }
-    }
-
-    /**
-     * Comprueba si no estan vacios los text y si son iguales los passwords
-     *
-     * @param {String} email
-     * @param {String} password
-     */
-    private fun _isValidEmailAndPassword(emai: String, password: String): Boolean {
-        return !emai.isNullOrEmpty() &&
-                !password.isNullOrEmpty() &&
-                password === editTextConfirmPassword.text.toString()
-
     }
 }

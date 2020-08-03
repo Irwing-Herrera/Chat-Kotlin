@@ -4,12 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.others.openActivity
-import com.iherrera.chatkotlin.activities.others.toast
+import com.iherrera.chatkotlin.activities.others.*
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_login.editTextEmail
-import kotlinx.android.synthetic.main.activity_login.editTextPassword
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -27,10 +23,10 @@ class LoginActivity : AppCompatActivity() {
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
 
-            if (_isValidEmailAndPassword(email, password)) {
+            if (isValidEmail(email) && isValidPassword(password)) {
                 _logIn(email, password)
             } else {
-
+                toast("Please make sure all the data is correct.")
             }
         }
 
@@ -41,6 +37,14 @@ class LoginActivity : AppCompatActivity() {
         textViewForgotPassword.setOnClickListener {
             openActivity<ForgotPasswordActivity>()
             overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
+        }
+
+        editTextEmail.validate {
+            editTextEmail.error = if (isValidEmail(it)) null else "Email is not valid"
+        }
+
+        editTextPassword.validate {
+            editTextPassword.error = if (isValidPassword(it)) null else "Password should contain 1 lowercase, 1 uppercase, 1 number, 1 special character and 4 characters length at least."
         }
     }
 
@@ -55,20 +59,17 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     toast("User is now logged in.")
+                    val currentUser = mAuth!!.currentUser!!
+                    currentUser.displayName
+                    currentUser.email
+                    currentUser.photoUrl
+                    currentUser.phoneNumber
+                    currentUser.isEmailVerified
+
                 } else {
                     toast("An unexpected error occurred, please try again.")
                 }
             }
     }
 
-    /**
-     * Comprueba si no estan vacios los text
-     *
-     * @param {String} email
-     * @param {String} password
-     * @return {Boolean}
-     */
-    private fun _isValidEmailAndPassword(emai: String, password: String): Boolean {
-        return !emai.isNullOrEmpty() && !password.isNullOrEmpty()
-    }
 }
