@@ -8,7 +8,6 @@ import com.iherrera.chatkotlin.R
 import com.iherrera.chatkotlin.activities.others.*
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_forgot_password.editTextEmail
-import kotlinx.android.synthetic.main.activity_login.*
 
 class ForgotPasswordActivity : AppCompatActivity() {
 

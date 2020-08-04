@@ -12,23 +12,22 @@
 
         <!-- adjustPan: No empujar el contenido cunado se usa un input -->
 
-        <activity
-            android:name=".activities.login.SignUpActivity">
-
-        </activity>
-
+        <activity android:name=".activities.login.SignUpActivity"></activity>
         <activity
             android:name=".activities.login.ForgotPasswordActivity"
             android:windowSoftInputMode="adjustPan" />
-
         <activity android:name=".activities.MainActivity" />
-
         <activity
             android:name=".activities.login.LoginActivity"
             android:theme="@style/NoPreview"
             android:windowSoftInputMode="adjustPan">
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.NoDisplay"
+            android:name=".activities.login.MainEmptyActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
