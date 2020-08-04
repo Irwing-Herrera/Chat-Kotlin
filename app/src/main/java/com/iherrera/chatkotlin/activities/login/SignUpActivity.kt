@@ -2,12 +2,10 @@ package com.iherrera.chatkotlin.activities.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.others.*
+import com.iherrera.chatkotlin.activities.utils.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {

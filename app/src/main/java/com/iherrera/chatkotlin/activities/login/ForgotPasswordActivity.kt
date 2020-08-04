@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.others.*
+import com.iherrera.chatkotlin.activities.utils.isValidEmail
+import com.iherrera.chatkotlin.activities.utils.openActivity
+import com.iherrera.chatkotlin.activities.utils.toast
+import com.iherrera.chatkotlin.activities.utils.validate
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_forgot_password.editTextEmail
 

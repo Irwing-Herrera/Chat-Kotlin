@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.activities.MainActivity
-import com.iherrera.chatkotlin.activities.others.openActivity
+import com.iherrera.chatkotlin.activities.utils.openActivity
 
 /**
  * Inicio de sesión y flujo de actividad principal
