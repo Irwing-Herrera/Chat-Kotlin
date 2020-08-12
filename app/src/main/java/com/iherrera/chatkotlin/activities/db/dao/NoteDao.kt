@@ -1,10 +1,10 @@
-package com.iherrera.chatkotlin.activities.db
+package com.iherrera.chatkotlin.activities.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.iherrera.chatkotlin.activities.models.NoteEntity
+import com.iherrera.chatkotlin.activities.db.entity.NoteEntity
 
 /**
  * Interfaz de métodos con los que accederemos a la entidad en la base de datos.
@@ -18,7 +18,7 @@ interface NoteDao {
      * @return {List<NoteEntity>?}
      */
     @Query("SELECT * FROM notes ORDER BY title ASC")
-    fun allNotes(): LiveData<List<NoteEntity>>
+    suspend fun getAllNotes(): List<NoteEntity>?
 
     /**
      * Insertar nota
@@ -27,7 +27,7 @@ interface NoteDao {
      * @return {Long}
      */
     @Insert
-    fun insertNote(note: NoteEntity): Long
+    suspend fun insertNote(note: NoteEntity): Long
 
     /**
      * Borrar una nota
@@ -35,5 +35,5 @@ interface NoteDao {
      * @param {Long} id
      */
     @Query("DELETE FROM notes WHERE id = :id")
-    fun deleteNote(id: Long)
+    suspend fun deleteNote(id: Long)
 }

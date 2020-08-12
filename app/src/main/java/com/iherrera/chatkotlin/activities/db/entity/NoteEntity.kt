@@ -1,13 +1,17 @@
-package com.iherrera.chatkotlin.activities.models
+package com.iherrera.chatkotlin.activities.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 /**
  * Tabla Notes
  */
-@Entity(tableName = NoteEntity.TABLE_NAME)
+@Entity(
+    tableName = "notes",
+    indices = [Index("id")]
+)
 class NoteEntity(
     /**
      * Titulo de la Nota
@@ -29,15 +33,6 @@ class NoteEntity(
     @ColumnInfo(name = "favorite")
     var isfavorite: Boolean? = false
 ) {
-    companion object {
-        /**
-         * Nombre de tabla
-         *
-         * @property {String}
-         */
-        const val TABLE_NAME: String = "notes"
-    }
-
     /**
      * Id de tabla
      *

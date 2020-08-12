@@ -2,7 +2,6 @@ package com.iherrera.chatkotlin.activities
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.iherrera.chatkotlin.R
