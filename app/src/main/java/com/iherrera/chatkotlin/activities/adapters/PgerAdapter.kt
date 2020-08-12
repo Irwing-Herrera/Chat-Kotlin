@@ -28,7 +28,9 @@ class PagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEH
 
     /**
      * Agregar un fragment al arreglo
+     *
+     * @param {fragment} Fragment
+     * @return {Boolean}
      */
-    fun addFragments(fragment: Fragment) = fragmentList.add(fragment)
-
+    fun addFragments(fragment: Fragment): Boolean = fragmentList.add(fragment)
 }

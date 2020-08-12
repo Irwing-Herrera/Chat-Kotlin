@@ -83,6 +83,7 @@ fun EditText.validate(validation: (String) -> Unit) {
  * Verifica si un texto cumple con la estructura de un Email
  *
  * @param {String} email
+ * @return {Boolean}
  */
 fun Activity.isValidEmail(email: String): Boolean {
     val pattern = Patterns.EMAIL_ADDRESS
@@ -94,6 +95,7 @@ fun Activity.isValidEmail(email: String): Boolean {
  * Se crea una expesion Regex par validar
  *
  * @param {String} password
+ * @return {Boolean}
  */
 fun Activity.isValidPassword(password: String): Boolean {
     // Necesita Contener -->    1 Num / 1 Minuscula / 1 Mayuscula / 1 Special / Min Caracteres 4
@@ -107,6 +109,7 @@ fun Activity.isValidPassword(password: String): Boolean {
  *
  * @param {String} password
  * @param {String} confirmPassword
+ * @return {Boolean}
  */
 fun Activity.isValidConfirmPassword(password: String, confirmPassword: String): Boolean {
     return password == confirmPassword

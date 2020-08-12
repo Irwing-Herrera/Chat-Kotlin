@@ -33,16 +33,22 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
     implementation 'com.google.android.material:material:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    // add the Firebase SDK for Google Analytics
-    implementation 'com.google.firebase:firebase-analytics:17.4.4'
-    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    // Test
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
+    // Add the Firebase SDK for Google Analytics
+    implementation "com.google.firebase:firebase-analytics:$firebase_analytics"
+    implementation "com.google.firebase:firebase-auth:$firebase_auth"
 
     // Servicios de Google Play
-    implementation 'com.google.android.gms:play-services-auth:18.1.0'
+    implementation "com.google.android.gms:play-services-auth:$play_services_auth"
+
+    // Room
+    annotationProcessor "androidx.room:room-compiler:$room_compiler"
+    implementation "androidx.room:room-runtime:$room_compiler"
 }
 
 apply plugin: 'com.google.gms.google-services'
