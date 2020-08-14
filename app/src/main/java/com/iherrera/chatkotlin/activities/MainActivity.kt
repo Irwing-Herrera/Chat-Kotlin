@@ -27,6 +27,7 @@ class MainActivity : ToolbarActivity() {
 
         _setUpViewPager(_getPagerAdapter())
         _setUpBottomNavigationBar()
+
     }
 
     /**

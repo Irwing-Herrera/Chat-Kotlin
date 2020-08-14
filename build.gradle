@@ -8,7 +8,10 @@ buildscript {
         junit = "4.12"
         ext_junit = "1.1.1"
         espresso_core = "3.2.0"
-        room_compiler = "2.2.5"
+        room_version = "2.2.5"
+        lifecycle_version = "2.2.0"
+        fragment_ktx = "1.2.5"
+        activity_version = "1.1.0"
     }
     repositories {
         google()

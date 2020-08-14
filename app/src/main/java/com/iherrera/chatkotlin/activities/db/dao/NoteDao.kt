@@ -8,6 +8,7 @@ import com.iherrera.chatkotlin.activities.db.entity.NoteEntity
 
 /**
  * Interfaz de métodos con los que accederemos a la entidad en la base de datos.
+ * DAO -> objetos de acceso a datos
  */
 @Dao
 interface NoteDao {
@@ -15,10 +16,18 @@ interface NoteDao {
     /**
      * Obtener todas las notas
      *
-     * @return {List<NoteEntity>?}
+     * @return {LiveData<List<NoteEntity>>}
      */
     @Query("SELECT * FROM notes ORDER BY title ASC")
-    suspend fun getAllNotes(): List<NoteEntity>?
+    fun getAll(): LiveData<List<NoteEntity>>
+
+    /**
+     * Obtener todas las notas favoritas
+     *
+     * @return {LiveData<List<NoteEntity>>}
+     */
+    @Query("SELECT * FROM notes WHERE favorite == 1 ORDER BY title ASC")
+    fun getAllFavorites(): LiveData<List<NoteEntity>>
 
     /**
      * Insertar nota
@@ -27,7 +36,7 @@ interface NoteDao {
      * @return {Long}
      */
     @Insert
-    suspend fun insertNote(note: NoteEntity): Long
+    fun insert(note: NoteEntity): Long
 
     /**
      * Borrar una nota
@@ -35,5 +44,11 @@ interface NoteDao {
      * @param {Long} id
      */
     @Query("DELETE FROM notes WHERE id = :id")
-    suspend fun deleteNote(id: Long)
+    fun delete(id: Long)
+
+    /**
+     * Borrar todas las nota
+     */
+    @Query("DELETE FROM notes")
+    fun deleteAll()
 }

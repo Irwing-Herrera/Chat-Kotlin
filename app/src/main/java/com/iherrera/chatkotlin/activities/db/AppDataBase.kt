@@ -1,21 +1,24 @@
 package com.iherrera.chatkotlin.activities.db
 
 import android.content.Context
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import com.iherrera.chatkotlin.activities.db.dao.NoteDao
 import com.iherrera.chatkotlin.activities.db.entity.NoteEntity
 
+/**
+ * Patrón singleton para que la BD sea compartida por cualquier objeto que la utilice
+ */
 @Database(
     entities = [NoteEntity::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 abstract class AppDataBase : RoomDatabase() {
+
     abstract fun noteDao(): NoteDao
 
     companion object {
-        private const val DATABASE_NAME: String = "notes_database"
+        private const val DATABASE_NAME = "score_database"
         @Volatile
         private var INSTANCE: AppDataBase? = null
 

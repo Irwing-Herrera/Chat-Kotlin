@@ -31,7 +31,7 @@ class NoteEntity(
      * @property {Boolean}
      */
     @ColumnInfo(name = "favorite")
-    var isfavorite: Boolean? = false
+    var isFavorite: Boolean? = false
 ) {
     /**
      * Id de tabla
