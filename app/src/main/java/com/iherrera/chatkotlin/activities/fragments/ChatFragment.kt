@@ -41,7 +41,7 @@ class ChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        noteViewModel.notes!!.observe(viewLifecycleOwner, Observer { notes ->
+        noteViewModel.notes!!.observe(viewLifecycleOwner, Observer<List<NoteEntity>> { notes ->
             Log.w("consola", "Notas: ${notes.size}")
         })
     }

@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.iherrera.chatkotlin"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -24,7 +24,17 @@ android {
         }
     }
 
-    kotlinOptions { jvmTarget = '1.8' }
+    // Para insertar el código de bytes construido con JVM target 1.8 en
+    // código de bytes que se está construyendo con JVM target 1.6. (por ejemplo, navArgs)
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -57,10 +67,23 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    // ViewModel en Fragment
+    // ViewModeokhttpVersionl en Fragment
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
     // ViewModel en Activity
     implementation "androidx.activity:activity-ktx:$activity_version"
+
+    // Retrofit
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion") {
+        // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    // OKHTTP
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+
+    // Coil image library
+    implementation("io.coil-kt:coil:0.9.5")
 }
 
 apply plugin: 'com.google.gms.google-services'
