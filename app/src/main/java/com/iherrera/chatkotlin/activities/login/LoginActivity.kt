@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.iherrera.chatkotlin.R
 import com.iherrera.chatkotlin.activities.MainActivity
-import com.iherrera.chatkotlin.activities.utils.*
+import com.iherrera.chatkotlin.activities.utilities.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

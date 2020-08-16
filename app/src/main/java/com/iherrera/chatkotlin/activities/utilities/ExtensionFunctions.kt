@@ -1,4 +1,4 @@
-package com.iherrera.chatkotlin.activities.utils
+package com.iherrera.chatkotlin.activities.utilities
 
 import android.app.Activity
 import android.content.Intent

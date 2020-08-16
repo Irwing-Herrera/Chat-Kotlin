@@ -1,4 +1,4 @@
-package com.iherrera.chatkotlin.activities.utils
+package com.iherrera.chatkotlin.activities.utilities
 
 /**
  * Clase de Constantes

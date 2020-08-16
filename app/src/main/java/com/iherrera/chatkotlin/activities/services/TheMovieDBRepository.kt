@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.iherrera.chatkotlin.activities.models.Movie
 import com.iherrera.chatkotlin.activities.models.PopularMovieResponse
 import com.iherrera.chatkotlin.activities.services.api.ITheMovieDBService
-import com.iherrera.chatkotlin.activities.utils.MyApp
+import com.iherrera.chatkotlin.activities.utilities.MyApp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,7 +33,7 @@ class TheMovieDBRepository {
      *
      * @param {MutableLiveData<List<Movie>>?} popularMovies
      */
-    var popularMovies: MutableLiveData<List<Movie>>? = null
+    var popularMovies: MutableLiveData<ArrayList<Movie>>? = null
 
     init {
         httpClient = HTTPClient.instance
@@ -44,11 +44,11 @@ class TheMovieDBRepository {
     /**
      * Obtiene el listado de Peliculas Populares
      *
-     * @return {MutableLiveData<List<Movie>>?}
+     * @return {MutableLiveData<ArrayList<Movie>>?}
      */
-    fun popularMovies(): MutableLiveData<List<Movie>>? {
+    fun popularMovies(): MutableLiveData<ArrayList<Movie>>? {
         if (popularMovies == null)
-            popularMovies = MutableLiveData<List<Movie>>()
+            popularMovies = MutableLiveData<ArrayList<Movie>>()
 
         val call: Call<PopularMovieResponse>? = theMovieDBService?.getPopularMovies()
         call?.enqueue(object : Callback<PopularMovieResponse> {
@@ -61,7 +61,7 @@ class TheMovieDBRepository {
                 response: Response<PopularMovieResponse>
             ) {
                 if (response.isSuccessful)
-                    popularMovies?.value = response.body()?.results
+                    popularMovies?.value = response.body()?.results as ArrayList<Movie>?
             }
 
         })

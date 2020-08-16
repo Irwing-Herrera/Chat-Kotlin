@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.utils.*
+import com.iherrera.chatkotlin.activities.utilities.*
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class SignUpActivity : AppCompatActivity() {

@@ -5,7 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.adapters.PagerAdapter
+import com.iherrera.chatkotlin.activities.utilities.adapters.PagerAdapter
 import com.iherrera.chatkotlin.activities.fragments.ChatFragment
 import com.iherrera.chatkotlin.activities.fragments.InfoFragment
 import com.iherrera.chatkotlin.activities.fragments.RatesFragment
@@ -36,7 +36,10 @@ class MainActivity : ToolbarActivity() {
      * @return {PagerAdapter}
      */
     private fun _getPagerAdapter() : PagerAdapter {
-        val adapter = PagerAdapter(supportFragmentManager)
+        val adapter =
+            PagerAdapter(
+                supportFragmentManager
+            )
         adapter.addFragments(InfoFragment())
         adapter.addFragments(RatesFragment())
         adapter.addFragments(ChatFragment())

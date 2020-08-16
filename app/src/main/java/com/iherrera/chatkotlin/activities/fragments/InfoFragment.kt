@@ -8,18 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iherrera.chatkotlin.R
-import com.iherrera.chatkotlin.activities.db.entity.NoteEntity
 import com.iherrera.chatkotlin.activities.db.viewmodel.MovieViewModel
-import com.iherrera.chatkotlin.activities.db.viewmodel.NoteViewModel
 import com.iherrera.chatkotlin.activities.models.Movie
-import com.iherrera.chatkotlin.activities.utils.adapter.MovieRecyclerViewAdapter
+import com.iherrera.chatkotlin.activities.utilities.adapters.MovieAdapter
+import com.iherrera.chatkotlin.activities.utilities.listeners.MovieListener
+import kotlin.math.log
 
-class InfoFragment : Fragment() {
+class InfoFragment : Fragment(), MovieListener {
 
     /**
      * ViewModel de Popular Movies
@@ -32,13 +31,14 @@ class InfoFragment : Fragment() {
      *
      * @property {List<Movie>} popularMoview
      */
-    private var popularMovies: List<Movie> = ArrayList()
+    private var movies: ArrayList<Movie> = ArrayList()
     /**
      * Adapter de listado de peliculas
      *
      * @property {MovieRecyclerViewAdapter} movieAdapter
      */
-    private val movieAdapter: MovieRecyclerViewAdapter by lazy { MovieRecyclerViewAdapter() }
+    private val movieAdapter: MovieAdapter =
+        MovieAdapter(this)
     /**
      * Columnas en pantalla
      *
@@ -62,12 +62,24 @@ class InfoFragment : Fragment() {
             }
         }
 
-        // Observer de las peliculas
-        movieViewModel.getPopularMovies().observe(viewLifecycleOwner, Observer<List<Movie>> {
-            popularMovies = it
-            movieAdapter.setData(popularMovies)
-        })
+        loadPopularMovies()
 
         return rootView
     }
+
+    private fun loadPopularMovies() {
+        movieViewModel.getPopularMovies().observe(viewLifecycleOwner, Observer<ArrayList<Movie>> {
+            movies = it
+            movieAdapter.setItems(movies)
+        })
+    }
+
+    override fun onMovieSelected(movieId: Int) {
+        movies.find {
+            it.id == movieId
+        }.let {
+            Log.w("consola", it.toString())
+        }
+    }
+
 }

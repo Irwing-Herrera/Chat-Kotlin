@@ -1,7 +1,7 @@
 package com.iherrera.chatkotlin.activities.services
 
 import com.iherrera.chatkotlin.activities.services.api.ITheMovieDBService
-import com.iherrera.chatkotlin.activities.utils.Constants
+import com.iherrera.chatkotlin.activities.utilities.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

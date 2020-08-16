@@ -18,7 +18,7 @@ class MovieViewModel : ViewModel() {
     /**
      * Listado de Peliculas Populares
      *
-     * @property {MutableLiveData<List<Movie>>} popularMovie
+     * @property {MutableLiveData<ArrayList<Movie>>} popularMovie
      */
     private var popularMovie = theMovieDBRepository.popularMovies()!!
 
@@ -27,7 +27,7 @@ class MovieViewModel : ViewModel() {
      *
      * @return {LiveData<List<Movie>>}
      */
-    fun getPopularMovies(): LiveData<List<Movie>> {
+    fun getPopularMovies(): LiveData<ArrayList<Movie>> {
         return popularMovie
     }
 }

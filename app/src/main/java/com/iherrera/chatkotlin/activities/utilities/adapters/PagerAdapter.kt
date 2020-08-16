@@ -1,4 +1,4 @@
-package com.iherrera.chatkotlin.activities.adapters
+package com.iherrera.chatkotlin.activities.utilities.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

@@ -1,6 +1,6 @@
 package com.iherrera.chatkotlin.activities.services
 
-import com.iherrera.chatkotlin.activities.utils.Constants
+import com.iherrera.chatkotlin.activities.utilities.Constants
 import okhttp3.Interceptor
 import okhttp3.Response
 
