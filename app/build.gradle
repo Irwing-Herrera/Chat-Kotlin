@@ -73,17 +73,17 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$activity_version"
 
     // Retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion") {
+    implementation("com.squareup.retrofit2:retrofit:$retrofit_version") {
         // exclude Retrofit’s OkHttp peer-dependency module and define your own module import
         exclude module: 'okhttp'
     }
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     // OKHTTP
-    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
 
     // Coil image library
-    implementation("io.coil-kt:coil:0.9.5")
+    implementation("io.coil-kt:coil:$coil_version")
 }
 
 apply plugin: 'com.google.gms.google-services'
