@@ -10,7 +10,17 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Agregar Interceptor a Retrofit y crear cliente HTTP
  */
 class HTTPClient {
+    /**
+     * Instancia de interfaz de servicios
+     *
+     * @property {ITheMovieDBService} theMovieDBService
+     */
     private val theMovieDBService: ITheMovieDBService
+    /**
+     * Instancia de Retrofit
+     *
+     * @property {Retrofit} retrofit
+     */
     private val retrofit: Retrofit
 
     companion object {
@@ -40,5 +50,10 @@ class HTTPClient {
         theMovieDBService = retrofit.create(ITheMovieDBService::class.java)
     }
 
+    /**
+     * Realizar la peticion de Peliculas Populares
+     *
+     * @return {Call<PopularMovieResponse>}
+     */
     fun getTheMovieDBService() = theMovieDBService
 }

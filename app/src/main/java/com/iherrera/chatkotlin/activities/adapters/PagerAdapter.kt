@@ -4,10 +4,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
+/**
+ * Adaptador de fragment de menu
+ *
+ * @param {FragmentManager} manager
+ */
 class PagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     /**
      * Arreglo de fragments
+     *
+     * @property {ArrayList<Fragment>} fragmentList
      */
     private val fragmentList = ArrayList<Fragment>()
 
@@ -17,14 +24,14 @@ class PagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEH
      * @param {Int} position
      * @return {Fragment}
      */
-    override fun getItem(position: Int): Fragment = fragmentList[position]
+    override fun getItem(position: Int) = fragmentList[position]
 
     /**
-     * Obtiene el tamaño del arreglo de el arreglo de los fragments
+     * Obtiene el tamaño del arreglo
      *
      * @return {Int}
      */
-    override fun getCount(): Int = fragmentList.size
+    override fun getCount() = fragmentList.size
 
     /**
      * Agregar un fragment al arreglo
@@ -32,5 +39,5 @@ class PagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEH
      * @param {fragment} Fragment
      * @return {Boolean}
      */
-    fun addFragments(fragment: Fragment): Boolean = fragmentList.add(fragment)
+    fun addFragments(fragment: Fragment) = fragmentList.add(fragment)
 }

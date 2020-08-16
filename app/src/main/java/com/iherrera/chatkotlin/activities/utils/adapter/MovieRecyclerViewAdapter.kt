@@ -1,6 +1,6 @@
 package com.iherrera.chatkotlin.activities.utils.adapter
 
-import android.provider.SyncStateContract
+import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,14 +12,28 @@ import com.iherrera.chatkotlin.activities.models.Movie
 import com.iherrera.chatkotlin.activities.utils.Constants
 import kotlinx.android.synthetic.main.fragment_info.view.*
 
+/**
+ * Adaptador de Pelicula
+ */
 class MovieRecyclerViewAdapter : RecyclerView.Adapter<MovieRecyclerViewAdapter.ViewHolder>() {
 
+    /**
+     * Evento click de Pelicula
+     *
+     * @property {View.OnClickListener} mOnClickListener
+     */
     private val mOnClickListener: View.OnClickListener
+    /**
+     * Listado de Peliculas
+     *
+     * @property {View.List<Movie>} movies
+     */
     private var movies: List<Movie> = ArrayList()
 
     init {
         mOnClickListener = View.OnClickListener { v ->
             val item = v.tag as Movie
+            Log.w("consola", item.toString())
         }
     }
 

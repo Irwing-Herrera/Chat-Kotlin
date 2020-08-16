@@ -17,6 +17,7 @@ class HTTPInterceptor : Interceptor {
      */
     override fun intercept(chain: Interceptor.Chain): Response {
 
+        // Agregar params a URL de peticion
         val urlWithParams = chain.request()
             .url
             .newBuilder()
@@ -24,6 +25,7 @@ class HTTPInterceptor : Interceptor {
             .addQueryParameter(Constants.URL_PARAM_LANGUAGE, "es-ES")
             .build()
 
+        //Agregar Headers a peticiones HTTP
         var request = chain.request()
 
         request = request.newBuilder()
