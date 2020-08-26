@@ -2,9 +2,11 @@ package com.iherrera.chatkotlin.activities.utilities
 
 import android.app.Application
 
-class MyApp: Application() {
+class App: Application() {
+
     companion object {
-        lateinit var instance: MyApp
+        lateinit var instance: App
+
     }
 
     override fun onCreate() {

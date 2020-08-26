@@ -74,12 +74,5 @@ class InfoFragment : Fragment(), MovieListener {
         })
     }
 
-    override fun onMovieSelected(movieId: Int) {
-        movies.find {
-            it.id == movieId
-        }.let {
-            Log.w("consola", it.toString())
-        }
-    }
 
 }

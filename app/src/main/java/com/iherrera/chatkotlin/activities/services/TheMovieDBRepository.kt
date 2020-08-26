@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.iherrera.chatkotlin.activities.models.Movie
 import com.iherrera.chatkotlin.activities.models.PopularMovieResponse
 import com.iherrera.chatkotlin.activities.services.api.ITheMovieDBService
-import com.iherrera.chatkotlin.activities.utilities.MyApp
+import com.iherrera.chatkotlin.activities.utilities.App
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,7 +53,7 @@ class TheMovieDBRepository {
         val call: Call<PopularMovieResponse>? = theMovieDBService?.getPopularMovies()
         call?.enqueue(object : Callback<PopularMovieResponse> {
             override fun onFailure(call: Call<PopularMovieResponse>, t: Throwable) {
-                Toast.makeText(MyApp.instance, "Error en la llamada", Toast.LENGTH_SHORT).show()
+                Toast.makeText(App.instance, "Error en la llamada", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(
